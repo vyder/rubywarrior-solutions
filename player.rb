@@ -1,5 +1,6 @@
 class Player
   def play_turn(warrior)
-    warrior.walk! warrior.direction_of_stairs
+    direction = warrior.direction_of_stairs
+    warrior.feel(direction).enemy? ? warrior.attack!(direction) : warrior.walk!(direction)
   end
 end
